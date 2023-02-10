@@ -25,7 +25,7 @@ public class UserController {
         return userService.join(user, userJoinDto, file);
     }
 
-    @PostMapping("/update")
+    @PostMapping(value = "/update", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
     @Operation(summary = "update user info")
     public UserResponseDto update(@ReqUser() User user, @RequestPart UserUpdateDto userUpdateDto, @RequestPart MultipartFile file) {
         return userService.update(user, userUpdateDto, file);
