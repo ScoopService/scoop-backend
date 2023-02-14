@@ -72,6 +72,7 @@ public class User {
         this.nickname = userJoinDto.getNickname();
         this.phone = userJoinDto.getPhone();
         this.gender = userJoinDto.getGender();
+        this.deviceToken = userJoinDto.getDeviceToken();
         this.userLocation = userLocation;
         this.profileImg = imgUrl;
     }
