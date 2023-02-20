@@ -5,17 +5,17 @@ import lombok.Getter;
 
 @Getter
 public class UserProfile {
-    private String oauthId;
+    private final String oauthId;
 
-    private UserProfile(String oauthId){
+    private UserProfile(String oauthId) {
         this.oauthId = oauthId;
     }
 
-    public static UserProfile of(String oauthId){
+    public static UserProfile of(String oauthId) {
         return new UserProfile(oauthId);
     }
 
-    public User toUser(){
+    public User toUser() {
         return User.of(oauthId);
     }
 }

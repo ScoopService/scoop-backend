@@ -10,6 +10,8 @@ import java.util.Optional;
 
 public interface UserExerciseLevelRepository extends JpaRepository<UserExerciseLevel, Long> {
     Optional<UserExerciseLevel> findByExerciseLevelAndUser(ExerciseLevel exerciseLevel, User user);
+
     List<UserExerciseLevel> findByUser(User user);
+
     void deleteAllByUser(User user);
 }

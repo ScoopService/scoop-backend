@@ -26,8 +26,8 @@ public class JwtTokenUtil {
     @Value("${jwt.secret-key}")
     private String secretKey;
 
-    private long accessTokenValidTime = Duration.ofMinutes(30).toMillis();
-    private long refreshTokenValidTime = Duration.ofDays(14).toMillis();
+    private final long accessTokenValidTime = Duration.ofMinutes(30).toMillis();
+    private final long refreshTokenValidTime = Duration.ofDays(14).toMillis();
 
     @Autowired
     private CustomUserDetailsService userDetailsService;
@@ -67,7 +67,7 @@ public class JwtTokenUtil {
         return createToken(oauthId, accessTokenValidTime);
     }
 
-    public String generateRefreshToken(String oauthId){
+    public String generateRefreshToken(String oauthId) {
         return createToken(oauthId, refreshTokenValidTime);
     }
 
@@ -92,7 +92,7 @@ public class JwtTokenUtil {
         return null;
     }
 
-    public Long getRemainTime(String token){
+    public Long getRemainTime(String token) {
         return extractAllClaims(token).getExpiration().getTime();
     }
 

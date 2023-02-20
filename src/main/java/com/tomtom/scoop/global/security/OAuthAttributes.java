@@ -17,7 +17,7 @@ public enum OAuthAttributes {
     private final String registrationId;
     private final Function<Map<String, Object>, UserProfile> of;
 
-    OAuthAttributes(String registrationId, Function<Map<String, Object>, UserProfile> of){
+    OAuthAttributes(String registrationId, Function<Map<String, Object>, UserProfile> of) {
         this.registrationId = registrationId;
         this.of = of;
     }

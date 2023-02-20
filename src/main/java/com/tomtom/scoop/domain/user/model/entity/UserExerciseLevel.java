@@ -19,11 +19,11 @@ public class UserExerciseLevel extends BaseTimeEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="exerciseLevel_id")
+    @JoinColumn(name = "exerciseLevel_id")
     private ExerciseLevel exerciseLevel;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
 }

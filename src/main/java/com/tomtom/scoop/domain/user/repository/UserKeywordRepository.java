@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface UserKeywordRepository extends JpaRepository<UserKeyword, Long> {
     List<UserKeyword> findByUser(User user);
+
     void deleteAllByUser(User user);
 
 }

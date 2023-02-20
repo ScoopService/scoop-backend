@@ -21,10 +21,10 @@ public class MeetingDetailResponseDto {
     @Schema(description = "Meeting content", example = "Let's run together In KonKuk the park")
     private String content;
 
-    @Schema(description = "Meeting Member count" , example = "5")
+    @Schema(description = "Meeting Member count", example = "5")
     private Integer memberCount;
 
-    @Schema(description = "Meeting Member limit" , example = "10")
+    @Schema(description = "Meeting Member limit", example = "10")
     private Integer memberLimit;
 
     @Schema(description = "Meeting Type", example = "Play")
@@ -33,13 +33,13 @@ public class MeetingDetailResponseDto {
     @Schema(description = "Meeting exercise level", example = "Beginner")
     private String exerciseLevel;
 
-    @Schema(description = "Meeting Owner name" , example = "Seonghun")
+    @Schema(description = "Meeting Owner name", example = "Seonghun")
     private String ownerName;
 
-    @Schema(description = "Meeting Owner profile img" , example = "https://scoop.s3.ap-northeast-2.amazonaws.com/42455.png")
+    @Schema(description = "Meeting Owner profile img", example = "https://scoop.s3.ap-northeast-2.amazonaws.com/42455.png")
     private String ownerProfile;
 
-    @Schema(description = "Meeting participant profile img" , example = "['https://scoop.s3.ap-northeast-2.amazonaws.com/42455.png', 'https://scoop.s3.ap-northeast-2.amazonaws.com/42455.png']")
+    @Schema(description = "Meeting participant profile img", example = "['https://scoop.s3.ap-northeast-2.amazonaws.com/42455.png', 'https://scoop.s3.ap-northeast-2.amazonaws.com/42455.png']")
     private List<String> meetingUserProfiles;
 
     @Schema(description = "User Meeting status", example = "ACCEPTED")

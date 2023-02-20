@@ -29,7 +29,7 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
     private final RefreshTokenRepository refreshTokenRepository;
-    private long refreshTokenValidTime = Duration.ofDays(14).toMillis();
+    private final long refreshTokenValidTime = Duration.ofDays(14).toMillis();
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -43,15 +43,15 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
         refreshTokenRepository.save(
                 RefreshToken.builder()
-                .key(oauthId)
-                .value(refreshToken)
-                .expiredTime(refreshTokenValidTime)
-                .build());
+                        .key(oauthId)
+                        .value(refreshToken)
+                        .expiredTime(refreshTokenValidTime)
+                        .build());
 
         User findUser = userService.findByOauthId(oauthId);
-        LoginResult loginResult = new LoginResult(accessToken, refreshToken,false);
+        LoginResult loginResult = new LoginResult(accessToken, refreshToken, false);
         //새로운 회원일 경우
-        if (findUser.getName() == null){
+        if (findUser.getName() == null) {
             loginResult.isFirst = true;
         }
         response.setContentType("application/json");
@@ -60,7 +60,7 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         response.getWriter().write(mapper.writeValueAsString(loginResult));
     }
 
-    private String makeRedirectUrl(String url,String accessToken, String refreshToken) {
+    private String makeRedirectUrl(String url, String accessToken, String refreshToken) {
 
         return UriComponentsBuilder.fromUriString(url)
                 .queryParam("accessToken", accessToken)
@@ -72,7 +72,7 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    private class LoginResult{
+    private class LoginResult {
         private String accessToken;
         private String refreshToken;
         private boolean isFirst;

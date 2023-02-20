@@ -64,10 +64,11 @@ public class User {
         this.oauthId = oauthId;
     }
 
-    public static User of(String oauthId){
+    public static User of(String oauthId) {
         return new User(oauthId);
     }
-    public void join(UserJoinDto userJoinDto, UserLocation userLocation,String imgUrl){
+
+    public void join(UserJoinDto userJoinDto, UserLocation userLocation, String imgUrl) {
         this.name = userJoinDto.getName();
         this.nickname = userJoinDto.getNickname();
         this.phone = userJoinDto.getPhone();
@@ -77,7 +78,7 @@ public class User {
         this.profileImg = imgUrl;
     }
 
-    public void update(UserUpdateDto userUpdateDto, String imgUrl){
+    public void update(UserUpdateDto userUpdateDto, String imgUrl) {
         this.nickname = userUpdateDto.getNickname();
         this.profileImg = imgUrl;
         this.statusMessage = userUpdateDto.getStatusMessage();

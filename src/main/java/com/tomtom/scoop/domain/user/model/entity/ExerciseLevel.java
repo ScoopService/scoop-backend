@@ -17,14 +17,10 @@ public class ExerciseLevel extends BaseTimeEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="exercise_id")
+    @JoinColumn(name = "exercise_id")
     private Exercise exercise;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(255)")
     private String level;
-
-//    @Column(nullable = false, columnDefinition = "TEXT")
-//    private String detail;
-
 
 }
